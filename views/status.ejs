@@ -1,5 +1,6 @@
 <% include header.ejs %>
 <% include nav.ejs %>
+<body class="content brightness">
 <div id="page-wrapper">
 
     <div class="container-fluid">
@@ -7,8 +8,8 @@
             <h1><span
                         class="glyphicon glyphicon-stats
                         "></span> MPD Status</h1>
-            <hr>
-            <table class="table table-bordered">
+            <br>
+            <table class="table table-responsive">
                 <% var keysbyindex = Object.keys(status);
                 for (var i=0; i<keysbyindex.length; i++){ %>
                 <tr>
@@ -20,6 +21,6 @@
         </div> <!-- /container -->
     </div>
 </div>
+</body>
 
-<% include footer.ejs %>
 </html>

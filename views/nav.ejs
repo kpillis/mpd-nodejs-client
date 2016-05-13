@@ -13,24 +13,24 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-            <li class="nav-element" data-path="resume"><a href="/">Now Playing</a></li>
-            <li class="nav-element" data-path="jobs"><a href="/playlist">Playlist</a></li>
-            <li class="nav-element" data-path="applications"><a href="/status">MPD Status</a></li>
+            <li  data-path="resume"><a href="/">Now Playing</a></li>
+            <li  data-path="jobs"><a href="/playlist">Playlist</a></li>
+            <li  data-path="applications"><a href="/status">MPD Status</a></li>
         </ul>
-    </div>
-</nav>
-<nav class="navbar navbar-fixed-bottom" role="navigation">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-nav navbar-right">
-        <div class="panel">
-            <a href="/previous" data-action="previous"><span
-                        class="btn  btn-lg glyphicon glyphicon-backward"></span></a>
-            <a href="/pause" data-action="pause"><span
-                        class="btn  btn-lg glyphicon glyphicon-pause"></span></a>
-            <a href="/play" data-action="play"><span class="btn  btn-lg glyphicon glyphicon-play"></span></a>
-            <a href="/next" data-action="next"><span
-                        class="btn  btn-lg glyphicon glyphicon-forward"></span></a>
-        </div>
+        <ul class="nav navbar-nav navbar-right" ng-controller="StatusController as status">
+            <li ><a href="/previous" data-action="previous"><span
+                            class="glyphicon glyphicon-backward"></span></a></li>
+            <li ><a href="/pause" ng-show="playing" data-action="pause"><span
+                            class="glyphicon glyphicon-pause"></span></a></li>
+            <li ><a href="/play" ng-hide="playing" data-action="play"><span
+                            class="glyphicon glyphicon-play"></span></a></li>
+            <li ><a href="/next" data-action="next"><span
+                            class="glyphicon glyphicon-forward"></span></a></li>
+            <li ><a href="#" ng-style="randomStyle"><span
+                            class="glyphicon glyphicon-random"></span></a></li>
+            <li ><a href="#"><span
+                            class="glyphicon glyphicon-repeat"></span></a></li>
+        </ul>
     </div>
 </nav>
 

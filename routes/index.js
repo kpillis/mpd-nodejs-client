@@ -72,7 +72,11 @@ router.use('/previous', function (req, res, next) {
     });
 });
 
-router.use('/playlist', function (req, res, next) {
+router.get('/playlist', function (req, res, next) {
+    res.render('playlist');
+});
+
+router.get('/api/playlist', function (req, res, next) {
     var playListInfo = null;
     client.sendCommand(cmd("playlistinfo", []), function (err, msg) {
         if (err) throw err;
@@ -81,9 +85,9 @@ router.use('/playlist', function (req, res, next) {
         for (var i = 0; i < playListInfo.length; i++) {
             var line = playListInfo[i];
             if (line != "") {
-                if (i!= 0 && line.indexOf("file")> -1) {
+                if (i != 0 && line.indexOf("file") > -1) {
                     jsonString = jsonString.concat('},{');
-                } else if(i!= 0){
+                } else if (i != 0) {
                     jsonString = jsonString.concat(",");
                 }
 
@@ -93,7 +97,31 @@ router.use('/playlist', function (req, res, next) {
         }
         jsonString = jsonString.concat("}]");
         var playlistJSON = JSON.parse(jsonString);
-        res.render('playlist', {playlist: playlistJSON});
+        res.json(playlistJSON);
+    });
+});
+
+
+router.get('/state', function (req, res, next) {
+    var status = null;
+    client.sendCommand(cmd("status", []), function (err, msg) {
+        if (err) throw err;
+        status = msg.split('\n');
+        var jsonString = "{";
+        for (var i = 0; i < status.length; i++) {
+            var line = status[i];
+            if (line != "") {
+                if (i != 0) {
+                    jsonString = jsonString.concat(",");
+                }
+                var lineItems = line.split(':');
+                jsonString = jsonString.concat("\"" + lineItems[0] + "\":" + "\"" + lineItems[1].trim() + "\"");
+            }
+        }
+        jsonString = jsonString.concat("}");
+        var statusJSON = JSON.parse(jsonString);
+        console.log(statusJSON);
+        res.json(statusJSON);
     });
 });
 
