@@ -1,0 +1,43 @@
+body {
+  padding: 50px;
+  background: #2f2f2f;
+  color: #f0f0f0;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+h1{
+  color: #8BC34A;
+}
+
+a {
+  color: #00BCD4;
+}
+
+.content:before {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: -1;
+
+  display: block;
+  background-image: url('http://www.technobuffalo.com/wp-content/uploads/2015/08/ios9-wallpaper-feat.jpg');
+  background-size:cover;
+  height:100%;
+  width: 100%;
+
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
+
+.brightness:before
+{
+  filter: brightness(50%);
+  -webkit-filter: brightness(50%);
+  -moz-filter: brightness(50%);
+  -o-filter: brightness(50%);
+  -ms-filter: brightness(50%);
+}

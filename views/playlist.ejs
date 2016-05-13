@@ -1,0 +1,33 @@
+<% include header.ejs %>
+<% include nav.ejs %>
+<div id="page-wrapper">
+
+    <div class="container-fluid">
+        <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1">
+            <h1><span
+                        class="glyphicon glyphicon-music"></span> Playlist</h1>
+            <br>
+            <table class="table table-responsive">
+                <thead>
+                <td>Postition</td>
+                <td>Artist</td>
+                <td>Title</td>
+                <td>Album</td>
+                </thead>
+                <tbody>
+                <% playlist.forEach(function(track){ %>
+                <tr>
+                    <td><%= track.Pos %></td>
+                    <td><%= track.Artist %></td>
+                    <td><%= track.Title %></td>
+                    <td><%= track.Album %></td>
+                </tr>
+                <% }) %>
+                </tbody>
+            </table>
+        </div> <!-- /container -->
+    </div>
+</div>
+
+<% include footer.ejs %>
+</html>

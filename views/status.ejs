@@ -1,0 +1,25 @@
+<% include header.ejs %>
+<% include nav.ejs %>
+<div id="page-wrapper">
+
+    <div class="container-fluid">
+        <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1">
+            <h1><span
+                        class="glyphicon glyphicon-stats
+                        "></span> MPD Status</h1>
+            <hr>
+            <table class="table table-bordered">
+                <% var keysbyindex = Object.keys(status);
+                for (var i=0; i<keysbyindex.length; i++){ %>
+                <tr>
+                    <td><%= keysbyindex[i].toUpperCase()%></td>
+                    <td><%= status[keysbyindex[i]] %></td>
+                </tr>
+                <% }%>
+            </table>
+        </div> <!-- /container -->
+    </div>
+</div>
+
+<% include footer.ejs %>
+</html>
