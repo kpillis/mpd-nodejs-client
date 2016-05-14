@@ -17,6 +17,19 @@ router.post('/play', mpdInterface("play"), function (req, res, next) {
     res.sendStatus(200);
 });
 
+router.post('/play/:trackId',
+    function (req, res, next) {
+        var mpdParams = [];
+        mpdParams.push(req.params.trackId);
+        res.mpdParams = mpdParams;
+        return next();
+    },
+    mpdInterface("playid"),
+    function (req, res, next) {
+        res.sendStatus(200);
+    }
+);
+
 router.post('/pause', mpdInterface("pause"), function (req, res, next) {
     res.sendStatus(200);
 });
@@ -28,6 +41,42 @@ router.post('/next', mpdInterface("next"), function (req, res, next) {
 router.post('/previous', mpdInterface("previous"), function (req, res, next) {
     res.sendStatus(200);
 });
+
+router.post('/toggle-repeat',
+    mpdInterface("status"),
+    mpdToJSON(),
+    function (req, res, next) {
+        var repeat = res.JSON.repeat;
+        if (repeat == 0) {
+            res.mpdParams = [1];
+        } else {
+            res.mpdParams = [0];
+        }
+        return next();
+    },
+    mpdInterface("repeat"),
+    function (req, res, next) {
+        res.sendStatus(200);
+    }
+);
+
+router.post('/toggle-random',
+    mpdInterface("status"),
+    mpdToJSON(),
+    function (req, res, next) {
+        var random = res.JSON.random;
+        if (random == 0) {
+            res.mpdParams = [1];
+        } else {
+            res.mpdParams = [0];
+        }
+        return next();
+    },
+    mpdInterface("random"),
+    function (req, res, next) {
+        res.sendStatus(200);
+    }
+);
 
 router.get('/playlist',
     mpdInterface("playlistinfo"),

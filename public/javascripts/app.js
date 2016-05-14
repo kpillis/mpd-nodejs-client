@@ -1,6 +1,6 @@
 (function () {
 
-    var app = angular.module('mpdClient', ['ngRoute', 'ngAnimate']);
+    var app = angular.module('mpdClient', ['ngRoute']);
 
     app.controller('CurrentController', function ($scope, $interval, $http) {
         $interval(function () {
@@ -19,6 +19,31 @@
     });
 
     app.controller('StatusController', function ($scope, $interval, $http) {
+
+        $scope.play = function () {
+            $http.post('/api/play');
+        };
+
+        $scope.pause = function () {
+            $http.post('/api/pause');
+        };
+
+        $scope.next = function () {
+            $http.post('/api/next');
+        };
+
+        $scope.previous = function () {
+            $http.post('/api/previous');
+        };
+
+        $scope.toggleRandom= function () {
+            $http.post('/api/toggle-random');
+        };
+
+        $scope.toggleRepeat = function () {
+            $http.post('/api/toggle-repeat');
+        };
+
         $interval(function () {
             $http.get('/api/status').success(function (data) {
                 $scope.status = data;
@@ -40,6 +65,11 @@
     });
     app.controller('PlaylistController', function ($scope, $interval, $http) {
         $scope.Math = window.Math;
+
+        $scope.playId = function (trackId) {
+            $http.post('/api/play/'+trackId,{});
+        };
+
         $interval(function () {
             $http.get('/api/playlist').success(function (data) {
                 var tracks = data;

@@ -8,6 +8,7 @@
             <br>
             <table class="table table-responsive">
                 <thead>
+                <td>Play</td>
                 <td>Postition</td>
                 <td>Artist</td>
                 <td>Title</td>
@@ -17,6 +18,7 @@
                 </thead>
                 <tbody>
                 <tr ng-repeat="track in tracks  track by track.Id" ng-class="track.selected">
+                    <td ng-click="playId(track.Id)"><span class="playThis glyphicon glyphicon-play-circle"></span></td>
                     <td> {{ track.Pos }}</td>
                     <td>{{ track.Artist }}</td>
                     <td>{{ track.Title }}</td>

@@ -18,17 +18,17 @@
             <li  data-path="applications"><a href="/status">MPD Status</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right" ng-controller="StatusController as status">
-            <li ><a href="/previous" data-action="previous"><span
+            <li ><a href="#" ng-click="previous()"><span
                             class="glyphicon glyphicon-backward"></span></a></li>
-            <li ><a href="/pause" ng-show="playing" data-action="pause"><span
+            <li ><a ng-click="pause()" ng-show="playing"><span
                             class="glyphicon glyphicon-pause"></span></a></li>
-            <li ><a href="/play" ng-hide="playing" data-action="play"><span
+            <li ><a ng-click="play()" ng-hide="playing"><span
                             class="glyphicon glyphicon-play"></span></a></li>
-            <li ><a href="/next" data-action="next"><span
+            <li ><a ng-click="next()"><span
                             class="glyphicon glyphicon-forward"></span></a></li>
-            <li ><a href="#" style="{{randomStyle}}"><span
+            <li ><a ng-click="toggleRandom()" style="{{randomStyle}}"><span
                             class="glyphicon glyphicon-random"></span></a></li>
-            <li ><a href="#" style="{{repeatStyle}}"><span
+            <li ><a ng-click="toggleRepeat()" style="{{repeatStyle}}"><span
                             class="glyphicon glyphicon-repeat"></span></a></li>
         </ul>
     </div>

@@ -57,3 +57,7 @@ a {
   width: 0;
   background-color: #E0EAF1;
 }
+
+.playThis:hover{
+  color:#0CE3AC;
+}
