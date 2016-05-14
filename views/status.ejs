@@ -1,6 +1,6 @@
 <% include header.ejs %>
 <% include nav.ejs %>
-<body class="content brightness">
+<body class="content brightness" ng-controller="StatusController">
 <div id="page-wrapper">
 
     <div class="container-fluid">
@@ -10,13 +10,10 @@
                         "></span> MPD Status</h1>
             <br>
             <table class="table table-responsive">
-                <% var keysbyindex = Object.keys(status);
-                for (var i=0; i<keysbyindex.length; i++){ %>
-                <tr>
-                    <td><%= keysbyindex[i].toUpperCase()%></td>
-                    <td><%= status[keysbyindex[i]] %></td>
+                <tr ng-repeat="(key,value) in status">
+                    <td>{{key.toUpperCase()}}</td>
+                    <td>{{value}}</td>
                 </tr>
-                <% }%>
             </table>
         </div> <!-- /container -->
     </div>

@@ -12,7 +12,7 @@ module.exports = function () {
                 }
 
                 var lineItems = line.split(':');
-                jsonString = jsonString.concat("\"" + lineItems[0] + "\":" + "\"" + lineItems[1] + "\"");
+                jsonString = jsonString.concat("\"" + lineItems[0] + "\":" + "\"" + lineItems[1].trim() + "\"");
             }
         }
         jsonString = jsonString.concat("}]");

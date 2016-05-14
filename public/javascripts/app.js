@@ -21,6 +21,7 @@
     app.controller('StatusController', function ($scope, $interval, $http) {
         $interval(function () {
             $http.get('/api/status').success(function (data) {
+                $scope.status = data;
                 $scope.playing = data.state == "play";
                 $scope.repeat = data.repeat != 0;
                 if ($scope.repeat) {
@@ -37,9 +38,24 @@
             });
         }, 1000);
     });
-    app.controller('PlaylistController', function ($scope, $http) {
-        $http.get('/api/playlist').success(function (data) {
-            $scope.tracks = data;
-        });
+    app.controller('PlaylistController', function ($scope, $interval, $http) {
+        $scope.Math = window.Math;
+        $interval(function () {
+            $http.get('/api/playlist').success(function (data) {
+                var tracks = data;
+                $http.get('/api/status').success(function (data) {
+                    tracks.forEach(function(item){
+                        if(item.Pos == data.song){
+                            item.selected = "selected";
+                        }else{
+                            item.selected = "";
+                        }
+                        item.song = data.song;
+                    });
+                    $scope.tracks = tracks;
+                });
+
+            });
+        }, 1500);
     });
 })();

@@ -12,14 +12,18 @@
                 <td>Artist</td>
                 <td>Title</td>
                 <td>Album</td>
+                <td>Genre</td>
+                <td>Time</td>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="track in tracks  track by track.Id">
-                        <td>{{ track.Pos }}</td>
-                        <td>{{ track.Artist }}</td>
-                        <td>{{ track.Title }}</td>
-                        <td>{{ track.Album }}</td>
-                    </tr>
+                <tr ng-repeat="track in tracks  track by track.Id" ng-class="track.selected">
+                    <td> {{ track.Pos }}</td>
+                    <td>{{ track.Artist }}</td>
+                    <td>{{ track.Title }}</td>
+                    <td>{{ track.Album }}</td>
+                    <td>{{ track.Genre }}</td>
+                    <td> {{ Math.floor(track.Time/60)}}:{{ track.Time%60 }}</td>
+                </tr>
                 </tbody>
             </table>
         </div> <!-- /container -->

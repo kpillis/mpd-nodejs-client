@@ -12,8 +12,6 @@ router.get('/current', renderMW('current'));
 
 router.get('/playlist', renderMW('playlist'));
 
-router.get('/status', mpdInterface("status"), mpdToJSON(), function (req, res, next) {
-    res.render('status', {status: res.JSON});
-});
+router.get('/status', renderMW('status'));
 
 module.exports = router;
