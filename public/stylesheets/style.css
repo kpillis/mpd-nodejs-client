@@ -41,3 +41,19 @@ a {
   -o-filter: brightness(50%);
   -ms-filter: brightness(50%);
 }
+
+.selected {
+  background-color: rgba(20,20,20,0.75);
+  color: #0CE3A2;
+}
+
+.seekBase {
+  height: 30px;
+  width: 90%;
+  border: 1px solid #cccccc;
+}
+.seekLoad {
+  height: 28px;
+  width: 0;
+  background-color: #E0EAF1;
+}
