@@ -3,33 +3,35 @@
 <body class="content brightness" ng-controller="PlaylistController">
 <div id="page-wrapper">
     <div class="container-fluid">
-        <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1">
+        <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
             <h1><span class="glyphicon glyphicon-music"></span> Playlist</h1>
             <br>
-            <table class="table table-responsive">
-                <thead>
-                <td>Play</td>
-                <td>Postition</td>
-                <td>Artist</td>
-                <td>Title</td>
-                <td>Album</td>
-                <td>Genre</td>
-                <td>Time</td>
-                </thead>
-                <tbody>
-                <tr ng-repeat="track in tracks  track by track.Id" ng-class="track.selected">
-                    <td ng-click="playId(track.Id)"><span class="playThis glyphicon glyphicon-play-circle"></span></td>
-                    <td> {{ track.Pos }}</td>
-                    <td>{{ track.Artist }}</td>
-                    <td>{{ track.Title }}</td>
-                    <td>{{ track.Album }}</td>
-                    <td>{{ track.Genre }}</td>
-                    <td> {{ Math.floor(track.Time/60)}}:{{ track.Time%60 }}</td>
-                </tr>
-                </tbody>
-            </table>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                    <td>Play</td>
+                    <td>Artist</td>
+                    <td>Title</td>
+                    <td>Album</td>
+                    <td>Genre</td>
+                    <td>Time</td>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="track in tracks  track by track.Id" ng-class="track.selected">
+                        <td ng-click="playId(track.Id)"><span class="playThis glyphicon glyphicon-play-circle"></span>
+                        </td>
+                        <td>{{ track.Artist }}</td>
+                        <td>{{ track.Title }}</td>
+                        <td>{{ track.Album }}</td>
+                        <td>{{ track.Genre }}</td>
+                        <td> {{ Math.floor(track.Time/60)}}:{{ track.Time%60 }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div> <!-- /container -->
     </div>
 </div>
+<% include footer.ejs %>
 </body>
 </html>

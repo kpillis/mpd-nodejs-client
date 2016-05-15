@@ -13,9 +13,18 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-            <li  data-path="resume"><a href="/">Now Playing</a></li>
-            <li  data-path="jobs"><a href="/playlist">Playlist</a></li>
-            <li  data-path="applications"><a href="/status">MPD Status</a></li>
+            <li><a href="/">Now Playing</a></li>
+            <li><a href="/playlist">Playlist</a></li>
+            <li><a href="/search">Search</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Browse <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="/browse/artists">Artists</a></li>
+                    <li><a href="/browse/albums">Albums</a></li>
+                    <li><a href="/browse/genres">Genres</a></li>
+                </ul>
+            </li>
+            <li><a href="/status">MPD Status</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right" ng-controller="StatusController as status">
             <li ><a href="#" ng-click="previous()"><span

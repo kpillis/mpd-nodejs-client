@@ -1,63 +1,56 @@
 body {
-  padding: 50px;
-  background: #2f2f2f;
-  color: #f0f0f0;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    padding-top: 65px;
+    padding-bottom: 50px;
+    background: #2f2f2f;
+    color: #f0f0f0;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-h1{
-  color: #8BC34A;
+footer {
+    background: rgba(20, 20, 20, 0.8);
+    color: #f0f0f0;
+}
+
+h1 {
+    color: #8BC34A;
 }
 
 a {
-  color: #00BCD4;
+    color: #00BCD4;
 }
 
 .content:before {
-  content: "";
-  position: fixed;
-  left: 0;
-  right: 0;
-  z-index: -1;
+    content: "";
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: -1;
 
-  display: block;
-  background-image: url('http://www.technobuffalo.com/wp-content/uploads/2015/08/ios9-wallpaper-feat.jpg');
-  background-size:cover;
-  height:100%;
-  width: 100%;
+    display: block;
+    background-image: url('http://www.fubiz.net/wp-content/uploads/2015/12/Masashi-Wakui-16.jpg');
+    background-size: cover;
+    height: 100%;
+    width: 100%;
 
-  -webkit-filter: blur(5px);
-  -moz-filter: blur(5px);
-  -o-filter: blur(5px);
-  -ms-filter: blur(5px);
-  filter: blur(5px);
-}
-
-.brightness:before
-{
-  filter: brightness(50%);
-  -webkit-filter: brightness(50%);
-  -moz-filter: brightness(50%);
-  -o-filter: brightness(50%);
-  -ms-filter: brightness(50%);
+    -webkit-filter: blur(30px) brightness(50%);
+    -moz-filter: blur(30px) brightness(50%);
+    -o-filter: blur(30px) brightness(50%);
+    -ms-filter: blur(30px) brightness(50%);
+    filter: blur(30px) brightness(50%);
 }
 
 .selected {
-  background-color: rgba(20,20,20,0.75);
-  color: #0CE3A2;
+    background-color: rgba(20, 20, 20, 0.75);
+    color: #0CE3A2;
 }
 
-.seekBase {
-  height: 30px;
-  width: 90%;
-  border: 1px solid #cccccc;
-}
-.seekLoad {
-  height: 28px;
-  width: 0;
-  background-color: #E0EAF1;
+.playThis:hover {
+    color: #0CE3AC;
 }
 
-.playThis:hover{
-  color:#0CE3AC;
+footer {
+    position: fixed;
+    height: 50px;
+    bottom: 0;
+    width: 100%;
 }

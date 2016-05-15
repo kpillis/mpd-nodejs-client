@@ -3,7 +3,8 @@
 <body class="content brightness">
 <div id="page-wrapper">
     <div class="container-fluid">
-        <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1" ng-controller="CurrentController">
+        <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"
+             ng-controller="CurrentController">
             <h1><span
                         class="glyphicon glyphicon-play-circle"></span> {{ currentSong.Title }}</h1>
             <br>
@@ -13,13 +14,18 @@
             <br>
             <br><i>{{ currentSong.file }}</i>
         </div> <!-- /container -->
-        <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1" ng-controller="SeekerController">
-            <div class="seekBase" seek-track>
-                <div class="seekLoad" ng-style="{width : ( seekPercent + '%' ) }"></div>
+        <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"
+             ng-controller="SeekerController">
+            <div class="progress">
+                <div class="progress-bar  progress-bar-success" role="progressbar" aria-valuenow="{{seekPercent}}" aria-valuemin="0" aria-valuemax="100" ng-style="{width : ( seekPercent + '%' ) }">
+                    <span class="sr-only">60% Complete</span>
+                </div>
             </div>
         </div>
+
     </div>
 </div>
+<% include footer.ejs %>
 </body>
 
 </html>

@@ -80,12 +80,50 @@ router.post('/toggle-random',
 
 router.get('/playlist',
     mpdInterface("playlistinfo"),
-    mpdListToJSON(),
+    mpdListToJSON("file"),
     function (req, res, next) {
         res.json(res.JSON);
     }
 );
 
+
+router.get('/albums',
+    mpdInterface("list album"),
+    function(req,res,next){
+        console.log(res.msg);
+        next();
+    },
+    mpdListToJSON("Album"),
+    function (req, res, next) {
+        res.json(res.JSON);
+    }
+);
+
+router.get('/artists',
+    mpdInterface("list artist"),
+    mpdListToJSON("Artist"),
+    function (req, res, next) {
+        res.json(res.JSON);
+    }
+);
+
+
+router.get('/albums/:query',
+    mpdInterface("find album"),
+    mpdListToJSON("file"),
+    function (req, res, next) {
+        res.json(res.JSON);
+    }
+);
+
+
+router.get('/artists/:query',
+    mpdInterface("find artist"),
+    mpdListToJSON("file"),
+    function (req, res, next) {
+        res.json(res.JSON);
+    }
+);
 
 router.get('/status', mpdInterface("status"), mpdToJSON(), respond());
 

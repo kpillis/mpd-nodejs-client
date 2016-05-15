@@ -1,0 +1,21 @@
+<% include header.ejs %>
+<% include nav.ejs %>
+<body class="content brightness" ng-controller="ArtistController">
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+            <h1><span
+                        class="glyphicon glyphicon-cd
+                        "></span> Browse</h1>
+            <br>
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="artist in artists">
+                    <a href="/artist/{{artist.Artist}}">{{artist.Artist}}</a></li>
+            </ul>
+        </div> <!-- /container -->
+    </div>
+</div>
+<% include footer.ejs %>
+</body>
+
+</html>

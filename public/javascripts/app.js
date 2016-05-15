@@ -63,6 +63,13 @@
             });
         }, 1000);
     });
+
+    app.controller('ArtistController', function ($scope, $http) {
+        $http.get('/api/artists').success(function (data) {
+            $scope.artists = data;
+        });
+    });
+
     app.controller('PlaylistController', function ($scope, $interval, $http) {
         $scope.Math = window.Math;
 

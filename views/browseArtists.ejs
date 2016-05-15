@@ -5,13 +5,13 @@
     <div class="container-fluid">
         <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
             <h1><span
-                        class="glyphicon glyphicon-cd
-                        "></span> Browse <%= category %></h1>
+                        class="glyphicon glyphicon-user
+                        "></span> Browse Artists</h1>
             <br>
             <ul class="list-group">
                 <% data.forEach(function(item){ %>
                 <li class="list-group-item">
-                    <a href="/<%= category %>/item"><%= item.Genre %></a>
+                    <a href="/artists/<%= item.Artist%>"><%= item.Artist %></a>
                 </li>
                 <% }) %>
             </ul>

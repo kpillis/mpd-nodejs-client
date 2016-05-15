@@ -7,8 +7,14 @@ var client = mpd.connect({
 
 module.exports = function (command) {
     return function(req,res,next){
+        var myCommand = command;
         var params = res.mpdParams == null ? [] : res.mpdParams;
-        client.sendCommand(cmd(command, params), function (err, msg) {
+        if(req.params.query != null) {
+            var query = " \"" + req.params.query + "\"";
+            myCommand += query;
+        }
+        console.log(myCommand);
+        client.sendCommand(cmd(myCommand, params), function (err, msg) {
             if(err) throw err;
             res.msg = msg;
             return next();
